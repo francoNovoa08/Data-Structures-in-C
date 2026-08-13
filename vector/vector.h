@@ -2,9 +2,9 @@
 #define VECTOR_H
 
 typedef struct {
-  size_t size;
-  size_t capacity;
-  int *array;
+    size_t size;
+    size_t capacity;
+    int *array;
 } Vector;
 
 /**

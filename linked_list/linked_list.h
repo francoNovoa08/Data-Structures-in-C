@@ -2,15 +2,15 @@
 #define LINKED_LIST_H
 
 typedef struct Node {
-  int data;
-  struct Node *prev;
-  struct Node *next;
+    int data;
+    struct Node *prev;
+    struct Node *next;
 } Node;
 
 typedef struct {
-  Node *head;
-  Node *tail;
-  size_t length;
+    Node *head;
+    Node *tail;
+    size_t length;
 
 } LinkedList;
 
