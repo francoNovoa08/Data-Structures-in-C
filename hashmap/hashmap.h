@@ -1,5 +1,6 @@
-#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
+
 
 #ifndef HASHMAP_H
 #define HASHMAP_H
@@ -35,7 +36,7 @@ void HashMap_put(HashMap *self, int *key, int value);
  *
  * @return The value at the given key
  **/
-int* HashMap_get(HashMap *self, int *key);
+int *HashMap_get(HashMap *self, int *key);
 
 /**
  * @brief Removes and returns element with a given key
@@ -48,19 +49,19 @@ int* HashMap_get(HashMap *self, int *key);
 int HashMap_remove(HashMap *self, int *key);
 
 /**
- * @brief Adds an element with a given key and value to the HashMap
+ * @brief Free's the HashMap's memory
  *
  * @param self Pointer to the hashmap struct
- * @param value Element to be pushed
  **/
 void HashMap_free(HashMap *self);
 
 /**
-* Multiplicative hash function
-* @param key: The 32-bit integer to hash
-* @param table_bits: The power of 2 for table size (e.g., 8 bits = table size of 256)
-* @return An index in the range [0, 2^table_bits - 1]
-**/
+ * Multiplicative hash function
+ * @param key: The 32-bit integer to hash
+ * @param table_bits: The power of 2 for table size (e.g., 8 bits = table size
+ * of 256)
+ * @return An index in the range [0, 2^table_bits - 1]
+ **/
 uint32_t multiplicative_hash(const int *key, uint8_t table_bits);
 
 /**
