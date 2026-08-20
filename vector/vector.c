@@ -4,7 +4,8 @@
 
 void Vector_push(Vector *self, const int element) {
     if (self->size == self->capacity) {
-        int *temp = realloc(self->array, self->capacity * sizeof(int));
+        size_t new_capacity = self->capacity * 2;
+        int *temp = realloc(self->array, new_capacity * sizeof(int));
 
         if (temp == NULL) {
             printf("Failed to allocate memory for larger Vector.");
@@ -12,7 +13,7 @@ void Vector_push(Vector *self, const int element) {
         }
 
         self->array = temp;
-        self->capacity *= 2;
+        self->capacity = new_capacity;
     }
 
     self->array[self->size] = element;
@@ -50,6 +51,8 @@ void Vector_set(Vector *self, const size_t index, const int value) {
 void Vector_free(Vector *self) {
     free(self->array);
     self->array = NULL;
+    self->size = 0;
+    self->capacity = 0;
 }
 
 Vector Vector_init(size_t capacity) {
